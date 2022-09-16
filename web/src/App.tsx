@@ -1,81 +1,67 @@
 import './styles/main.css'
-import { MagnifyingGlassPlus } from 'phosphor-react'
+import * as Dialog from '@radix-ui/react-dialog'
 import logoSvg from './assets/logo.svg'
+import { CreateAdBanner } from './components/CreateAdBanner'
+import { GameBanner } from './components/GameBanner'
+import { useEffect, useState } from 'react'
+
+interface GameProps {
+  id: string;
+  title: string;
+  _count: {
+    ads: number
+  };
+  bannerUrl: string
+}
 
 export function App() {
+  const [games, setGames] = useState<GameProps[]>([])
+
+  useEffect(() => {
+    fetch('http://localhost:3333/games')
+      .then(response => response.json())
+      .then(data => {
+        setGames(data)
+      })
+  }, [])
+
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
       <img src={logoSvg} alt="" />
       <h1 className="text-6xl text-white font-black mt-20">Seu <span className="bg-nlw-gradient bg-clip-text text-transparent">duo</span> está aqui</h1>
 
       <div className="mt-16 grid grid-cols-6 gap-6 ">
-        <a className="relative rounded-lg overflow-hidden" href="">
-          <img src="/image-1.png" alt="" />
-
-          <div className="bg-card-gradient w-full pt-16 pb-4 px-4 absolute bottom-0 left-0 right-0">
-            <strong className="font-bold text-white block">League of Legends</strong>
-            <span className="text-zinc-300 text-sm block">4 anúncios</span>
-          </div>
-        </a>
-
-        <a className="relative rounded-lg overflow-hidden" href="">
-          <img src="/image-2.png" alt="" />
-
-          <div className="bg-card-gradient w-full pt-16 pb-4 px-4 absolute bottom-0 left-0 right-0">
-            <strong className="font-bold text-white block">Apex Legends</strong>
-            <span className="text-zinc-300 text-sm block">4 anúncios</span>
-          </div>
-        </a>
-
-        <a className="relative rounded-lg overflow-hidden" href="">
-          <img src="/image-3.png" alt="" />
-
-          <div className="bg-card-gradient w-full pt-16 pb-4 px-4 absolute bottom-0 left-0 right-0">
-            <strong className="font-bold text-white block">Counter Strike</strong>
-            <span className="text-zinc-300 text-sm block">4 anúncios</span>
-          </div>
-        </a>
-
-        <a className="relative rounded-lg overflow-hidden" href="">
-          <img src="/image-4.png" alt="" />
-
-          <div className="bg-card-gradient w-full pt-16 pb-4 px-4 absolute bottom-0 left-0 right-0">
-            <strong className="font-bold text-white block">World of Warcraft</strong>
-            <span className="text-zinc-300 text-sm block">4 anúncios</span>
-          </div>
-        </a>
-
-        <a className="relative rounded-lg overflow-hidden" href="">
-          <img src="/image-5.png" alt="" />
-
-          <div className="bg-card-gradient w-full pt-16 pb-4 px-4 absolute bottom-0 left-0 right-0">
-            <strong className="font-bold text-white block">Dota 2</strong>
-            <span className="text-zinc-300 text-sm block">4 anúncios</span>
-          </div>
-        </a>
-
-        <a className="relative rounded-lg overflow-hidden" href="">
-          <img src="/image-6.png" alt="" />
-
-          <div className="bg-card-gradient w-full pt-16 pb-4 px-4 absolute bottom-0 left-0 right-0">
-            <strong className="font-bold text-white block">Fortnite</strong>
-            <span className="text-zinc-300 text-sm block">4 anúncios</span>
-          </div>
-        </a>
+        {games.map(game => {
+          return (
+            <GameBanner 
+              key={game.id}
+              bannerUrl={game.bannerUrl}
+              title={game.title} 
+              adsCount={game._count.ads}/>
+          )
+        })}
       </div>
+      
+      <Dialog.Root>
+        <CreateAdBanner />
 
-      <div className="pt-1 mt-8 bg-nlw-gradient self-stretch rounded-lg overflow-hidden">
-        <div className="bg-[#2A2634] px-8 py-6 flex justify-between items-center">
-          <div>
-            <strong className="block text-2xl text-white font-black">Não encontrou seu duo?</strong>
-            <span className="block text-zinc-400">Publique um anúncio para encontrar novos players!</span>
-          </div>
-          <button className="bg-violet-500 hover:bg-violet-600 py-3 px-4 rounded text-white flex items-center gap-3">
-            <MagnifyingGlassPlus size={24}/>
-            Publicar anúncio
-          </button>
-        </div>
-      </div>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black/60"/>
+
+            <Dialog.Content 
+              className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25"
+            >
+              <Dialog.Title className="text-3xl font-black">
+                Publique um anúncio
+              </Dialog.Title>
+
+              <Dialog.Content>
+                <form></form>
+              </Dialog.Content>
+            </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+
     </div>
   )
 }
