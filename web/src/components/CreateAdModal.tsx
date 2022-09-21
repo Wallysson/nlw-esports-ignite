@@ -57,21 +57,18 @@ export function CreateAdModal() {
           <Dialog.Overlay className="fixed inset-0 bg-black/60"/>
 
             <Dialog.Content 
-              className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-[480px] shadow-lg shadow-black/25"
+              className="fixed bg-[#2A2634] py-8 px-10 text-white inset-0 
+              h-screen w-screen shadow-lg shadow-black/25 overflow-y-auto"
             >
-              <Dialog.Title className="text-3xl font-black">
+              <Dialog.Title className="text-2xl font-black text-center md:text-3xl">
                 Publique um anúncio
               </Dialog.Title>
                 <form 
-                  className="mt-8 flex flex-col gap-4"
+                  className="mt-8 flex flex-col gap-4 "
                   onSubmit={handleCreateAd}
                 >
                   <div className="flex flex-col gap-2">
                     <label htmlFor="game">Qual o game?</label>
-                    {/* <Input 
-                      id="game"
-                      placeholder="Selecione o game que deseja jogar" 
-                    /> */}
                       <Select.Root 
                         name="game"
                         value={currentGame}
@@ -118,8 +115,8 @@ export function CreateAdModal() {
                       placeholder="Como te chamam dentro do game?" />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="flex flex-col gap-2">
+                  <div className="block md:grid md:grid-cols-2 md:gap-6">
+                    <div className="mb-2 md:mb-0 flex flex-col gap-2">
                       <label htmlFor="yearsPlaying">Joga há quantos anos?</label>
                       <Input 
                         name="yearsPlaying"
@@ -142,7 +139,8 @@ export function CreateAdModal() {
                         <label htmlFor="weekDays">Quando costuma jogar?</label>
                         <ToggleGroup.Root 
                           type="multiple" 
-                          className="grid grid-cols-4 gap-2"
+                          // className="grid grid-cols-4 gap-2"
+                          className="flex gap-2 flex-1"
                           value={weekDays}
                           onValueChange={setWeekDays}
                         >
@@ -245,7 +243,7 @@ export function CreateAdModal() {
                     </Dialog.Close>
                     <button 
                       type="submit"
-                      className="bg-violet-500 px-5 h-12 rounded-md font-semibold flex items-center gap-3 hover:bg-violet-600"
+                      className="bg-violet-500 px-5 h-12 rounded-md font-semibold flex items-center gap-2 hover:bg-violet-600 text-sm md:gap-3 md:text-base"
                     >
                       <GameController size={24} />
                       Encontrar duo
