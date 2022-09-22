@@ -3,7 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 
 export function CreateAdBanner() {
   return (
-    <div className="pt-1 mt-8 bg-nlw-gradient w-[90%] md:w-full rounded-lg overflow-hidden">
+    <div className="pt-1 mt-8 bg-nlw-gradient w-11/12 md:w-full rounded-lg overflow-hidden">
     <div className="bg-[#2a2634] px-8 py-6 rounded-t-3xl md:rounded-t-lg flex flex-col md:flex-row md:justify-between text-center md:text-left items-center gap-10">
       <div>
         <strong 
