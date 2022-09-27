@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { ToastContainer, toast, Zoom, Flip } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { useEffect, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { CheckCircle, X } from 'phosphor-react'
@@ -9,6 +11,20 @@ interface DuoMatchProps {
 
 export function DuoMatch({ adsId }: DuoMatchProps) {
   const [discordDuo, setDiscordDuo] = useState('')
+  const [isCopping, setIsCopping] = useState(false)
+  function handleCopyToClipboardSelectedDiscordDuo() {
+    navigator.clipboard.writeText(discordDuo)
+    toast.success('Usuário copiado', {
+      icon: '📋',
+      position: 'top-right',
+      theme: 'dark',
+      autoClose: 2000,
+      progressStyle: {
+        background: '#8B5CF6'
+      }
+    })
+  }
+
   useEffect(() => {
     async function getDiscordUser() {
       await axios(`http://localhost:3333/ads/${adsId}/discord`).then(
@@ -22,6 +38,7 @@ export function DuoMatch({ adsId }: DuoMatchProps) {
 
   return (
     <Dialog.Portal>
+      <ToastContainer transition={Flip} />
       <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
 
       <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white inset-0 flex flex-col overflow-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[calc(100%-32px)] md:w-[480px] h-auto justify-center items-center">
@@ -41,7 +58,11 @@ export function DuoMatch({ adsId }: DuoMatchProps) {
         </span>
 
         <label className="label font-bold">Adicione no Discord</label>
-        <button className="bg-zinc-900 rounded py-3 flex w-full justify-center mt-2">
+        <button
+          className="bg-zinc-700 hover:bg-zinc-900 rounded py-3 flex w-full justify-center mt-2"
+          onClick={handleCopyToClipboardSelectedDiscordDuo}
+          disabled={isCopping}
+        >
           <div className="text-zinc-200">{discordDuo}</div>
         </button>
       </Dialog.Content>

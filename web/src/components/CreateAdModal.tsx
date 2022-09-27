@@ -6,6 +6,8 @@ import * as Select from '@radix-ui/react-select'
 import { useEffect, useState, FormEvent } from 'react'
 import * as ToggleGroup from '@radix-ui/react-toggle-group'
 import axios from 'axios'
+import { ToastContainer, toast, Flip } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 interface GameProps {
   id: string
@@ -45,15 +47,33 @@ export function CreateAdModal() {
         useVoiceChannel: useVoiceChannel
       })
 
-      alert('Anúncio criado com sucesso!')
+      toast.success('Anúncio publicado', {
+        icon: '📋',
+        position: 'top-right',
+        theme: 'dark',
+        autoClose: 2000,
+        progressStyle: {
+          background: '#8B5CF6'
+        }
+      })
     } catch (err) {
       console.log(err)
-      alert('Erro ao criar anúncio')
+      toast.error('Usuário copiado', {
+        icon: '📋',
+        position: 'top-right',
+        theme: 'dark',
+        autoClose: 2000,
+        progressStyle: {
+          background: 'red'
+        }
+      })
     }
   }
 
   return (
     <Dialog.Portal>
+      <ToastContainer transition={Flip} />
+
       <Dialog.Overlay className="fixed inset-0 bg-black/60" />
 
       <Dialog.Content
