@@ -51,16 +51,18 @@ A ideia é que seja uma plataforma para publicar anúncio para encontrar seu Duo
 
 ## 🖼️ Previews
 
+### Web
+
 | Home | New Ad Modal |
 | --- | --- |
 | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-Home.png"/> | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-NewAdModal.png" /> | 
 
-| Game| Discord User|
+| AdsGame | Discord User |
 | --- | --- |
 | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-AdGame.png" /> | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-DiscordUser.png" /> |
 
-### Mobile - Web (screenshot):
+### Mobile
 
-| Home | New Ad Modal | Game | Ad Confirmed |
-| --- | --- | --- | --- |
-| <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-2.png" width='275px' /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-1.png" width='275px' /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-3.png" width='275px' /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-4.png" width='275px' /> |
+| Home | AdsGame | Discord User |
+| --- | --- | --- |
+| <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Mobile-Home.jpeg" width='275px' /> | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Mobile-Ads.jpeg" width='275px' /> | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Mobile-DiscordUser.jpeg" width='275px' /> |
