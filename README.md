@@ -33,6 +33,7 @@ A ideia é que seja uma plataforma para publicar anúncio para encontrar seu Duo
 - [React Router DOM](https://github.com/remix-run/react-router#readme)
 - [Radix](https://www.radix-ui.com/)
 - [KeenSlider](https://keen-slider.io/)
+- [Toastify](https://fkhadra.github.io/react-toastify/introduction)
 
 ## 📑 Features
 
@@ -46,16 +47,17 @@ A ideia é que seja uma plataforma para publicar anúncio para encontrar seu Duo
 - Notificação de novo anúncio publicado;  ✔️
 - Anúncios dos games quando clicado nele; ✔️
 - Carrossel nas imagens e anúncio utilizando Keen Slider; ✔️
+- Clipboard usuário do discord; ✔️
 
 ## 🖼️ Previews
 
 | Home | New Ad Modal |
 | --- | --- |
-| <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-1.png" /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-2.png" /> | 
+| <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-Home.png"/> | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-NewAdModal.png" /> | 
 
-| Game| Ad Confirmed|
+| Game| Discord User|
 | --- | --- |
-| <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-3.png" /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-4.png" /> |
+| <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-AdGame.png" /> | <img src="https://github.com/Wallysson/nlw-esports-ignite/blob/main/web/src/assets/Desktop-DiscordUser.png" /> |
 
 ### Mobile - Web (screenshot):
 
