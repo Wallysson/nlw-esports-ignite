@@ -8,10 +8,10 @@ import logoSvg from '../assets/logo.svg'
 import { useEffect, useState } from 'react'
 import { CaretLeft, CaretRight } from 'phosphor-react'
 
-import axios from 'axios'
 import { GameBanner } from '../components/GameBanner'
 import { CreateAdBanner } from '../components/CreateAdBanner'
 import { CreateAdModal } from '../components/CreateAdModal'
+import { api } from '../lib/api'
 
 interface GameProps {
   id: string
@@ -58,7 +58,7 @@ export function Home() {
 
   useEffect(() => {
     async function getGame() {
-      await axios('http://localhost:3333/games').then(response => {
+      await api.get('/games').then(response => {
         setGames(response.data)
       })
     }

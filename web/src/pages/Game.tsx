@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import logoSvg from '../assets/logo.svg'
 import '../styles/main.css'
-import axios from 'axios'
 import { ArrowLeft } from 'phosphor-react'
 import { AdsDuo } from '../components/AdsDuo'
+import { api } from '../lib/api'
 
 interface GameProps {
   id: string
@@ -51,7 +51,7 @@ export function Game() {
 
   useEffect(() => {
     async function getAdsById() {
-      await axios(`http://localhost:3333/games/${id}/ads`).then(response => {
+      await api.get(`/games/${id}/ads`).then(response => {
         setAds(response.data)
       })
     }

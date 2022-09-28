@@ -19,6 +19,7 @@ export function CreateAdModal() {
   const [weekDays, setWeekDays] = useState<string[]>([])
   const [useVoiceChannel, setVoiceChannel] = useState(false)
   const [currentGame, setCurrentGame] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     axios('http://localhost:3333/games').then(response => {
@@ -28,6 +29,7 @@ export function CreateAdModal() {
 
   async function handleCreateAd(event: FormEvent) {
     event.preventDefault()
+    setIsSubmitting(true)
 
     const formData = new FormData(event.target as HTMLFormElement)
     const data = Object.fromEntries(formData)
@@ -46,28 +48,36 @@ export function CreateAdModal() {
         hourEnd: data.hourEnd,
         useVoiceChannel: useVoiceChannel
       })
-
-      toast.success('Anúncio publicado', {
-        icon: '📋',
-        position: 'top-right',
-        theme: 'dark',
-        autoClose: 2000,
-        progressStyle: {
-          background: '#8B5CF6'
-        }
-      })
+      notificationSucess()
     } catch (err) {
       console.log(err)
-      toast.error('Usuário copiado', {
-        icon: '📋',
-        position: 'top-right',
-        theme: 'dark',
-        autoClose: 2000,
-        progressStyle: {
-          background: 'red'
-        }
-      })
+      notificationError()
     }
+    setIsSubmitting(false)
+  }
+
+  function notificationSucess() {
+    toast.success('Anúncio publicado', {
+      icon: '📋',
+      position: 'top-right',
+      theme: 'dark',
+      autoClose: 2000,
+      progressStyle: {
+        background: '#8B5CF6'
+      }
+    })
+  }
+
+  function notificationError() {
+    toast.error('Usuário copiado', {
+      icon: '📋',
+      position: 'top-right',
+      theme: 'dark',
+      autoClose: 2000,
+      progressStyle: {
+        background: 'red'
+      }
+    })
   }
 
   return (
@@ -138,6 +148,7 @@ export function CreateAdModal() {
               name="name"
               id="name"
               placeholder="Como te chamam dentro do game?"
+              required
             />
           </div>
 
@@ -149,12 +160,18 @@ export function CreateAdModal() {
                 id="yearsPlaying"
                 type="number"
                 placeholder="Tudo bem ser ZERO"
+                required
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="discord">Qual seu discord?</label>
-              <Input name="discord" id="discord" placeholder="Usuario#0000" />
+              <Input
+                name="discord"
+                id="discord"
+                placeholder="Usuario#0000"
+                required
+              />
             </div>
           </div>
 
@@ -242,12 +259,14 @@ export function CreateAdModal() {
                 id="hourStart"
                 type="time"
                 placeholder="De"
+                required
               />
               <Input
                 name="hourEnd"
                 id="hourEnd"
                 type="time"
                 placeholder="Até"
+                required
               />
             </div>
           </div>
@@ -280,9 +299,10 @@ export function CreateAdModal() {
             </Dialog.Close>
             <button
               type="submit"
-              className="bg-violet-500 px-2 h-12 rounded-md font-semibold flex items-center gap-2 hover:bg-violet-600 text-sm md:gap-3 md:text-base md:px-5"
+              className="bg-violet-500 px-2 h-12 rounded-md font-semibold flex items-center gap-2 hover:bg-violet-600 text-sm md:gap-3 md:text-base md:px-5 disabled:bg-violet-700 disabled:cursor-not-allowed"
+              disabled={isSubmitting}
             >
-              <GameController className="w-5 h-5 md:w-6 md:w-6" />
+              <GameController className="w-5 h-5" />
               Encontrar duo
             </button>
           </footer>
