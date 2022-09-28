@@ -8,52 +8,57 @@
 Projeto backend, web e mobile feito na NLW eSports com os instrutores Diego e Rodrigo. Fiz várias adaptações que os professores deram dica para melhorar o projeto ou que senti necessidade para melhorar a aplicação.
 A ideia é que seja uma plataforma para publicar anúncio para encontrar seu Duo.
 
-- <a href="https://www.figma.com/file/tIqkWLqWDJqCEM6bVNu8xe/Plataforma-de-evento---Ignite-Lab-(Community)?node-id=0%3A1" target="_blank">Layout Figma</a>
-- [Tecnologias](#tecnologias)
-- [Desafios](#desafios)
-- [Previews](#previews)
+- <a href="https://www.figma.com/file/ws8N5kyf7R6y1Ebgc6FvJ2/NLW-eSports-(Community)?node-id=6%3A23" target="_blank">Layout Figma</a>
 
-# Tecnologias 🚀 
+## 🚀 Tecnologias
 
-## Server 
+### Server 
 
-- [Node.js](https://www.apollo.io/)
-- [Express](https://prisma.io/)
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Prisma](https://prisma.io/)
 
-## Mobile 
+### Mobile 
 
-- [React Native](https://www.apollo.io/)
-- [Expo](https://www.typescriptlang.org/)
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Web 
+### Web 
 
 - [ReactJS](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind](https://tailwindcss.com/)
-- [React Router DOM](https://tailwindcss.com/)
-- [Radix](https://tailwindcss.com/)
-- [KeenSlider](https://tailwindcss.com/)
+- [React Router DOM](https://github.com/remix-run/react-router#readme)
+- [Radix](https://www.radix-ui.com/)
+- [KeenSlider](https://keen-slider.io/)
 
-# Features 
+## 📑 Features
 
 - Backend no NodeJS pra fazer API com o Web e Mobile;
 - Listagem dos jogos preferidos;
 - Modal para novo anúncio;
 
-# Desafios 📑 
+## 💡 Desafios
 
 - Responsividade no projeto; ✔️
 - Notificação de novo anúncio publicado;  ✔️
 - Anúncios dos games quando clicado nele; ✔️
 - Carrossel nas imagens e anúncio utilizando Keen Slider; ✔️
 
-# Previews
+## 🖼️ Previews
 
-  <p align="center">
-    <figure>
-      <img src="src/assets/github-preview.png" width="100%">
-    </figure>
-  </p>
+| Home | New Ad Modal |
+| --- | --- |
+| <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-1.png" /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-2.png" /> | 
+
+| Game| Ad Confirmed|
+| --- | --- |
+| <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-3.png" /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/desktop-4.png" /> |
+
+### Mobile - Web (screenshot):
+
+| Home | New Ad Modal | Game | Ad Confirmed |
+| --- | --- | --- | --- |
+| <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-2.png" width='275px' /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-1.png" width='275px' /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-3.png" width='275px' /> | <img src="https://github.com/jfernandesdev/esports/blob/f71897dc0a3aec14accce6d87b3e68ed6d729dc3/web/public/layout/mobile-4.png" width='275px' /> |
